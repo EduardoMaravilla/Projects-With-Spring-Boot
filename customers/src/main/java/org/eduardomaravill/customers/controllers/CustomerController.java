@@ -1,7 +1,7 @@
 package org.eduardomaravill.customers.controllers;
 
 import org.eduardomaravill.customers.entities.Customer;
-import org.eduardomaravill.customers.services.CustomerService;
+import org.eduardomaravill.customers.services.ICustomerService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +14,7 @@ import java.util.*;
 public class CustomerController {
 
     @Autowired
-    private CustomerService customerService;
+    private ICustomerService customerService;
 
 
     @GetMapping("/customer/{id}")//Get customer
@@ -23,8 +23,8 @@ public class CustomerController {
     }
 
     @GetMapping("/customers")//Get customers
-    public List<Customer> getAllCustomer() {
-        return customerService.getAllCustomer();
+    public List<Customer> getAllCustomers() {
+        return customerService.getAllCustomers();
     }
 
     @PostMapping("/customer")//Add customer
@@ -43,9 +43,9 @@ public class CustomerController {
     }
 
     @GetMapping("/customers/search")//Search customer
-    public List<Customer> searchCustomer(@RequestParam(name = "email", required = false) String email
+    public List<Customer> searchCustomers(@RequestParam(name = "email", required = false) String email
             , @RequestParam(name = "address", required = false) String address) {
-        return customerService.searchCustomer(email, address);
+        return customerService.searchCustomers(email, address);
     }
 
 }
