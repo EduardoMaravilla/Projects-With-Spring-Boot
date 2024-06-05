@@ -44,7 +44,7 @@ async function loadCustomer(){
         document.getElementById('buttonAddCustomer').innerHTML='Register Customer';
         return;
     }    
-    let customer = await getCustomerById(getCustomerId())
+    let customer = await getCustomerById(getCustomerId());
     document.getElementById('nameFormCustomer').innerHTML='Edit Customer';
     document.getElementById('buttonAddCustomer').innerHTML='Update Customer';
     document.getElementById('exampleName').value = customer.name;
