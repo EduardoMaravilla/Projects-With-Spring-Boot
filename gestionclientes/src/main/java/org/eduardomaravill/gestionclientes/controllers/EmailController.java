@@ -3,6 +3,7 @@ package org.eduardomaravill.gestionclientes.controllers;
 import org.eduardomaravill.gestionclientes.dto.EmailDto;
 import org.eduardomaravill.gestionclientes.services.IEmailService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -19,6 +20,7 @@ import java.util.List;
 public class EmailController {
 
     @Autowired
+    @Qualifier("JetMailService")
     IEmailService emailService;
 
 
@@ -26,6 +28,7 @@ public class EmailController {
     public ResponseEntity<Void> sendEmail(){
         EmailDto emailDto = new EmailDto();
         emailDto.setFrom("eduardomaravilladev@hotmail.com");
+        emailDto.setName("EduardoDev");
         List<String> emailsTo = new ArrayList<>();
         emailsTo.add("eduardomaravilla@hotmail.com");
         emailDto.setTo(emailsTo);

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-@Service
+@Service("emailService")
 public class EmailServiceImpl implements IEmailService{
 
     @Autowired
@@ -30,8 +30,8 @@ public class EmailServiceImpl implements IEmailService{
         properties.put("mail.smtp.port", "587");
         properties.put("mail.smtp.ssl.trust", "smtp.office365.com");
 
-        String username = "eduardomaravilladev@hotmail.com";
-        String password = "#vh`;C2oo8+jd8Aog%#q";
+        String username = "#";
+        String password = "#";
 
         Session session = Session.getInstance(properties, new Authenticator() {
             @Override

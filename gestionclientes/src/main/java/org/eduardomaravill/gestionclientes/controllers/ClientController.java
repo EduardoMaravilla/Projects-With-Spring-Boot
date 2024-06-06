@@ -7,6 +7,7 @@ import org.eduardomaravill.gestionclientes.models.Client;
 import org.eduardomaravill.gestionclientes.services.IClientService;
 import org.eduardomaravill.gestionclientes.services.IEmailService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,7 @@ import java.util.List;
 public class ClientController {
 
     @Autowired
+    @Qualifier("JetMailService")
     private IEmailService emailService;
 
     @Autowired
@@ -53,8 +55,6 @@ public class ClientController {
     public ResponseEntity<Void> registerClient(@RequestBody Client client) {
         clientService.registerClient(client);
         emailService.sendEmail(client);
-
-
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 

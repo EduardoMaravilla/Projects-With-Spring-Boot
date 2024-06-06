@@ -10,6 +10,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class EmailDto {
+    private String name;
     private List<String> to;
     private String from;
     private String subject;
